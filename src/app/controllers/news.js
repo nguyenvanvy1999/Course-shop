@@ -1,4 +1,3 @@
-const Course = require('../models/course');
 class NewsController {
     index(req, res) {
         //[GET] /news
@@ -6,8 +5,6 @@ class NewsController {
     }
     async show(req, res) {
         // [GET] /news/:slug
-        const result = await Course.find();
-        res.json(result);
     }
 }
 
