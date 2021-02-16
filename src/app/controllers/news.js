@@ -1,11 +1,13 @@
+const Course = require('../models/course');
 class NewsController {
     index(req, res) {
         //[GET] /news
         res.render('news');
     }
-    show(req, res) {
+    async show(req, res) {
         // [GET] /news/:slug
-        res.send('hello');
+        const result = await Course.find();
+        res.json(result);
     }
 }
 
