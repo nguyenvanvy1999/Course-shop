@@ -3,7 +3,8 @@ const express = require('express'),
     handlebars = require('express-handlebars'),
     path = require('path'),
     app = express(),
-    port = 8080;
+    port = 8080,
+    route = require('./routes');
 
 app.use(morgan('dev'));
 
@@ -12,14 +13,7 @@ app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'resources', 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', (req, res) => {
-    res.render('home');
-});
-
-app.get('/search', (req, res) => {
-    res.render('search');
-});
-
+route(app);
 app.listen(port, () =>
     console.log(`App listening at http://localhost:${port}`)
 );
