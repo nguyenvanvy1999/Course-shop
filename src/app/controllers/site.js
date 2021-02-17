@@ -5,8 +5,7 @@ class SiteController {
     async home(req, res, next) {
         try {
             const result = await Course.find();
-            const courses = convertArray(result);
-            res.render('home', { courses });
+            res.render('home', { courses: convertArray(result) });
         } catch (error) {
             next(error);
         }

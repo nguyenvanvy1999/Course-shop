@@ -3,6 +3,6 @@ function convertArray(arr) {
 }
 
 function convertObject(obj) {
-    return obj ? obj.toObject : obj;
+    return obj ? obj.toObject() : obj;
 }
 module.exports = { convertArray, convertObject };
